@@ -1,3 +1,16 @@
-"scripts": {
+{
+  "name": "orange-real-estate-bot",
+  "version": "1.0.0",
+  "description": "Orange Real Estate Telegram Bot",
+  "main": "bot.js",
+  "scripts": {
+   "scripts": {
   "start": "node server.js & node bot.js"
+}
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "telegraf": "^4.16.3"
+  }
 }
