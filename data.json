@@ -4,13 +4,27 @@
     "price": "$700",
     "rooms": "2 комнаты",
     "text": "Современная квартира рядом с метро.",
-    "photo": "https://via.placeholder.com/600x400"
+    "photo": "https://picsum.photos/600/400?1"
   },
   {
     "district": "Ваке",
     "price": "$1200",
     "rooms": "3 комнаты",
     "text": "Новая квартира в центре Ваке.",
-    "photo": "https://via.placeholder.com/600x400"
+    "photo": "https://picsum.photos/600/400?2"
+  },
+  {
+    "district": "Диди Дигоми",
+    "price": "$650",
+    "rooms": "2 комнаты",
+    "text": "Уютная квартира.",
+    "photo": "https://picsum.photos/600/400?3"
+  },
+  {
+    "district": "Вера",
+    "price": "$950",
+    "rooms": "2 комнаты",
+    "text": "Квартира после ремонта.",
+    "photo": "https://picsum.photos/600/400?4"
   }
 ]
