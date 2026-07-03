@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "district": "Сабуртало",
+    "price": "$700",
+    "rooms": "2 комнаты",
+    "text": "Современная квартира рядом с метро.",
+    "photo": "https://via.placeholder.com/600x400"
+  },
+  {
+    "district": "Ваке",
+    "price": "$1200",
+    "rooms": "3 комнаты",
+    "text": "Новая квартира в центре Ваке.",
+    "photo": "https://via.placeholder.com/600x400"
+  }
+]
