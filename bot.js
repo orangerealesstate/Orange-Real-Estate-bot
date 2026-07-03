@@ -30,40 +30,40 @@ bot.start((ctx) => {
 // ПОИСК
 bot.hears("🔍 Найти квартиру", (ctx) => {
   ctx.reply(
-    "📍 Выберите район:",
-    Markup.keyboard([
-      ["Сабуртало", "Ваке"],
-      ["Диди Дигоми", "Мтацминда"],
-      ["Вера", "Дидубе"],
-      ["Ортачала", "Исани"],
-      ["Авлабари", "Чугурети"],
-      ["Сололаки", "Лиси"],
-      ["⬅️ Назад"]
-    ]).resize()
+"📍 Выберите район:",
+Markup.keyboard([
+["Сабуртало","Ваке"],
+["Диди Дигоми","Мтацминда"],
+["Вера","Дидубе"],
+["Ортачала","Исани"],
+["Авлабари","Чугурети"],
+["Сололаки","Лиси"],
+["⬅️ Назад"]
+]).resize()
   );
 });
 
 // НАЗАД
-bot.hears("⬅️ Назад", (ctx) => {
-  ctx.reply(
-    "Главное меню",
-    Markup.keyboard([
-      ["🔍 Найти квартиру"],
-      ["❤️ Избранное"],
-      ["ℹ️ Как мы работаем"],
-      ["📞 Связаться с агентом"]
-    ]).resize()
-  );
+bot.hears("⬅️ Назад", (ctx)=>{
+ctx.reply(
+"Главное меню",
+Markup.keyboard([
+["🔍 Найти квартиру"],
+["❤️ Избранное"],
+["ℹ️ Как мы работаем"],
+["📞 Связаться с агентом"]
+]).resize()
+);
 });
 
 // ИЗБРАННОЕ
-bot.hears("❤️ Избранное", (ctx) => {
-  ctx.reply("⭐ Пока у вас нет избранных квартир.");
+bot.hears("❤️ Избранное",(ctx)=>{
+ctx.reply("⭐ Пока у вас нет избранных квартир.");
 });
 
 // КАК МЫ РАБОТАЕМ
-bot.hears("ℹ️ Как мы работаем", (ctx) => {
-  ctx.reply(`🏠 Orange Real Estate
+bot.hears("ℹ️ Как мы работаем",(ctx)=>{
+ctx.reply(`🏠 Orange Real Estate
 
 Мы бесплатно подбираем квартиры.
 
@@ -76,59 +76,54 @@ bot.hears("ℹ️ Как мы работаем", (ctx) => {
 Комиссию оплачивает собственник.`);
 });
 
-// АГЕНТ
-bot.hears("📞 Связаться с агентом", (ctx) => {
-  ctx.reply("📲 Telegram: @orangerealestate");
+// СВЯЗАТЬСЯ
+bot.hears("📞 Связаться с агентом",(ctx)=>{
+ctx.reply("📲 Telegram: @orangerealestate");
 });
 
 const districts = [
-  "Сабуртало",
-  "Ваке",
-  "Диди Дигоми",
-  "Мтацминда",
-  "Вера",
-  "Дидубе",
-  "Ортачала",
-  "Исани",
-  "Авлабари",
-  "Чугурети",
-  "Сололаки",
-  "Лиси"
+"Сабуртало",
+"Ваке",
+"Диди Дигоми",
+"Мтацминда",
+"Вера",
+"Дидубе",
+"Ортачала",
+"Исани",
+"Авлабари",
+"Чугурети",
+"Сололаки",
+"Лиси"
 ];
 
 // ПОКАЗ КВАРТИР
-bot.hears(districts, (ctx) => {
+bot.hears(districts, (ctx)=>{
 
-  const district = ctx.message.text;
+const district = ctx.message.text.trim();
 
-  const result = apartments.filter(
-    flat => flat.district === district
-  );
+const result = apartments.filter(
+a => a.district.trim() === district
+);
 
-  if (result.length === 0) {
-    return ctx.reply("❌ Пока нет квартир в этом районе.");
-  }
+if(result.length===0){
+return ctx.reply("❌ Пока нет квартир в этом районе.");
+}
 
-  result.forEach(flat => {
+result.forEach(flat=>{
 
-    ctx.replyWithPhoto(flat.photo, {
-      caption:
+ctx.replyWithPhoto(flat.photo,{
+caption:
 `🏠 ${flat.rooms}
 
 💰 ${flat.price}
 
 ${flat.text}`
-    });
-
-  });
+});
 
 });
 
-// Запуск
+});
+
 bot.launch();
 
 console.log("✅ Orange Real Estate Bot started");
-
-// Корректное завершение
-process.once("SIGINT", () => bot.stop("SIGINT"));
-process.once("SIGTERM", () => bot.stop("SIGTERM"));
