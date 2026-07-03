@@ -1,4 +1,4 @@
-const { Telegraf, Markup } = require("telegraf");
+console.log("NEW BOT VERSION");
 require("dotenv").config();
 
 const apartments = require("./data.json");
